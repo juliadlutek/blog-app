@@ -1,0 +1,5 @@
+export const POST_ADD = "POST_ADD"
+export const POST_DELETE = "POST_DELETE"
+export const POST_EDIT = "POST_EDIT"
+export const POST_DELETE_USER = "POST_DELETE_USER"
+export const POST_DELETE_ALL = "POST_DELETE_ALL"

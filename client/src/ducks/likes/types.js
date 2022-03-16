@@ -1,0 +1,5 @@
+export const LIKE_ADD = "LIKE_ADD"
+export const LIKE_DELETE = "LIKE_DELETE"
+export const LIKE = "LIKE"
+export const DISLIKE = "DISLIKE"
+export const LIKE_DELETE_ALL = "LIKE_DELETE_ALL"
