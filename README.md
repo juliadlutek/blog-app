@@ -45,29 +45,33 @@ cd blog-app && cd client && npm install  && npm start
 ## Screenshots and functionality
 On the landing page, the user can log in or create an account.
 
-![alt text]()
+![login](https://github.com/juliadlutek/blog-app/blob/master/client/src/screenshots/Screenshot_1.png)
+
+![register](https://github.com/juliadlutek/blog-app/blob/master/client/src/screenshots/Screenshot_2.png)
 
 In the home view, the user can view the posts added by all users or view the list of registered users.
 
-![posts list]()
+![posts list](https://github.com/juliadlutek/blog-app/blob/master/client/src/screenshots/Screenshot_3.png)
 
-![users list]()
+![users list](https://github.com/juliadlutek/blog-app/blob/master/client/src/screenshots/Screenshot_4.png)
 
 In the view of my posts, the user can view posts added by himself, edit them, delete them or create a new post
 
-![my posts list]()
+![my posts list](https://github.com/juliadlutek/blog-app/blob/master/client/src/screenshots/Screenshot_5.png)
 
 The user can add and edit posts through a form that includes validation.
 
-![post create]()
+![post create](https://github.com/juliadlutek/blog-app/blob/master/client/src/screenshots/Screenshot_6.png)
 
 The post detail view displays the content of the post, the number of likes and comments. There, users can add, edit or delete comments, as well as edit and delete the post, if they are its authors.
 
-![post details]()
+![post details](https://github.com/juliadlutek/blog-app/blob/master/client/src/screenshots/Screenshot_8.png)
+
+![comments](https://github.com/juliadlutek/blog-app/blob/master/client/src/screenshots/Screenshot_9.png)
 
 In the account editing view, the user can change the password, delete the account or log out.
 
-![account editing]()
+![account editing](https://github.com/juliadlutek/blog-app/blob/master/client/src/screenshots/Screenshot_10.png)
 
 ## Sources
 
