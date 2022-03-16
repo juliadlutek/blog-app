@@ -1,5 +1,5 @@
 # Blog App
-Full-stack blog application that allows you to create an account and add, edit and delete posts and comments. There are also options such as editing an account, liking posts, chatting with other users and seeing what they are doing on the site. The application was developed using Node.js, React and Redux and stores data in the MongoDB database. It uses internet protocols such as http and mqtt. It also includes password encryption and cookies.
+Full-stack blog application that allows you to create an account and add, edit and delete posts and comments. There are also options such as editing an account, liking posts, chatting with other users and seeing what they are doing on the site. The application was developed using Node.js, React and Redux and stores data in the MongoDB database. It also includes password encryption and cookies.
 This project was created to pass the Web Protocols course in my university, initially it was in a private repository on gitlab, so unfortunately the full commit history is not available.
 
 ## Technologies
