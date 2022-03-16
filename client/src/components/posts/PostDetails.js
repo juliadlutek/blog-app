@@ -12,14 +12,10 @@ import Cookies from 'js-cookie'
 import { deletePost } from '../../ducks/posts/operations';
 import CommentCreate from '../comments/CommentCreate';
 import { likePost, dislikePost } from '../../ducks/likes/operations';
-import {mqttPublish} from '../../mqtt/mqtt.js';
 
 
 const PostDetails = ({posts, users, deletePost, likes, likePost, dislikePost}) => {
 
-
-    const record = {topic:"default",qos: 1,};
-    const publish = (payload) => {mqttPublish({...record,...payload})};
 
 
     const { id } = useParams()
@@ -63,7 +59,6 @@ const PostDetails = ({posts, users, deletePost, likes, likePost, dislikePost}) =
                 </Link>
                   <img className="small-icon" onClick={() => {
                       if (window.confirm(`Are you sure you want to delete post '${thisPost.title}'?`)) {
-                        publish({"topic":"posts/delete","payload":JSON.stringify({from: userName, post: thisPost.title})})
                         deletePost(thisPost) 
                         history.push("/")
                     }
@@ -81,14 +76,12 @@ const PostDetails = ({posts, users, deletePost, likes, likePost, dislikePost}) =
                             <img className="icon" onClick={() => {
                                 dislikePost({post: id, user: userId})
                                 setLikesAmount(likesAmount - 1)
-                                publish({"topic":"dislikes","payload":JSON.stringify({from: userName, for: author.username})})        
                                 setIsLiked(false)
                             }} src={heart2} alt="" />
                         ) : (
                             <img className="icon" onClick={() => {
                                 likePost({post: id, user: userId})
                                 setLikesAmount(likesAmount + 1)
-                                publish({"topic":"likes","payload":JSON.stringify({from: userName, for: author.username})})
                                 setIsLiked(true)
                             }} src={heart1} alt="" />
                         )}

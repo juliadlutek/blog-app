@@ -3,14 +3,10 @@ import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import {addComment} from '../../ducks/comments/operations'
 import Cookies from 'js-cookie'
-import {useEffect} from 'react'
-import {mqttPublish} from '../../mqtt/mqtt.js';
- 
+import {useEffect} from 'react' 
 
 const CommentCreate = ({addComment, users, thisPost}) => {
- 
-    const record = {topic:"default",qos: 1,};
-    const publish = (payload) => {mqttPublish({...record,...payload})};
+
 
     const history = useHistory()
     const userName = Cookies.get("userName")
@@ -18,7 +14,6 @@ const CommentCreate = ({addComment, users, thisPost}) => {
 
     const handleSubmit=(values)=>{
         addComment(values)
-        publish({"topic":"comments/add","payload":JSON.stringify({from: userName, post: thisPost.title})})
 }
 
     useEffect(() => {

@@ -6,14 +6,9 @@ import edit from '../../images/edit.png'
 import {deleteComment, editComment} from '../../ducks/comments/operations'
 import {useState} from 'react'
 import CommentForm from './CommentForm';
-import {mqttPublish} from '../../mqtt/mqtt.js';
 
 
 const Comments = ({thisPost, comments, users, deleteComment, editComment}) => {
-  
-  const record = {topic:"default",qos: 1,};
-  const publish = (payload) => {mqttPublish({...record,...payload})};
-
   const thisComments = comments.filter(comment => comment.post === thisPost.id)
   const userName = Cookies.get("userName")
   const thisUser = users.find(user => user.username === userName)
@@ -32,7 +27,6 @@ const Comments = ({thisPost, comments, users, deleteComment, editComment}) => {
                     title={"Edit comment"}
                     onSubmit={(values) => {
                         editComment(values)
-                        publish({"topic":"comments/edit","payload":JSON.stringify({from: userName, post: thisPost.title})})
                         setIsEdited("")
                     } }
                     initialValues={{
@@ -51,7 +45,6 @@ const Comments = ({thisPost, comments, users, deleteComment, editComment}) => {
                   (<div className="icons">
                     <img onClick={() => setIsEdited(comment.id)} src={edit} className="small-icon" alt="" />
                     <img onClick={() => {
-                      publish({"topic":"comments/delete","payload":JSON.stringify({from: userName, post: thisPost.title})})
                       deleteComment(comment)
                     }} src={del} className="small-icon" alt="" />
                   </div>) : 

@@ -8,12 +8,9 @@ import {useHistory} from 'react-router-dom'
 import del from '../../images/delete.png'
 import { deletePost } from '../../ducks/posts/operations';
 import edit from '../../images/edit.png'
-import {mqttPublish} from '../../mqtt/mqtt.js';
 
 const MyPosts = ({posts, users, deletePost}) => {
 
-    const record = {topic:"default",qos: 1,};
-    const publish = (payload) => {mqttPublish({...record,...payload})};
 
     const userName = Cookies.get("userName")
     const history = useHistory()
@@ -49,7 +46,6 @@ const MyPosts = ({posts, users, deletePost}) => {
                             </Link>
                             <img onClick={() => {
                                 if (window.confirm(`Are you sure you want to delete post '${post.title}'?`)) {
-                                    publish({"topic":"posts/delete","payload":JSON.stringify({from: userName, post: post.title})})
                                     deletePost(post) 
                                 }
                             }} src={del} className="small-icon" alt="" />    

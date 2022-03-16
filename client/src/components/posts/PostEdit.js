@@ -3,14 +3,11 @@ import { connect } from 'react-redux'
 import { editPost } from '../../ducks/posts/operations'
 import { useHistory, useParams } from "react-router-dom";
 import Navbar from '../Navbar'
-import {mqttPublish} from '../../mqtt/mqtt.js';
 import Cookies from 'js-cookie'
 import {useEffect} from 'react'
 
 const PostEdit = ({posts, editPost}) => {
 
-    const record = {topic:"default",qos: 1,};
-    const publish = (payload) => {mqttPublish({...record,...payload})};
 
     const userName = Cookies.get("userName")
     let history = useHistory()
@@ -28,7 +25,6 @@ const PostEdit = ({posts, editPost}) => {
 
     const handleSubmit=(values)=>{
         editPost(values)
-        publish({"topic":"posts/edit","payload":JSON.stringify({from: userName, post: thisPost.title})})
         history.push('/my-posts')      
 }
 

@@ -4,14 +4,10 @@ import { useHistory } from 'react-router-dom'
 import {addPost} from '../../ducks/posts/operations'
 import Cookies from 'js-cookie'
 import {useEffect} from 'react'
-import Navbar from '../Navbar'
-import {mqttPublish} from '../../mqtt/mqtt.js'; 
- 
+import Navbar from '../Navbar' 
 
 const PostCreate = ({addPost}) => {
 
-    const record = {topic:"default",qos: 1,};
-    const publish = (payload) => {mqttPublish({...record,...payload})};
 
     const history = useHistory()
     const userName = Cookies.get("userName")
@@ -24,7 +20,6 @@ const PostCreate = ({addPost}) => {
 
     const handleSubmit=(values)=>{
             addPost(values)
-            publish({"topic":"posts/add","payload":JSON.stringify({from: userName, post: values.title})})
             history.push('/my-posts')      
     }
 
