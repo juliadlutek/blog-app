@@ -26,11 +26,8 @@ const PostDetails = ({posts, users, deletePost, likes, likePost, dislikePost}) =
 
     const history = useHistory()
     const [isLiked, setIsLiked] = useState(false)
-    const userName = Cookies.get("userName")
     const userId = Cookies.get("userId")
     const [isItMyPost, setIsItMyPost] = useState(false)
-    const [isEdited, setIsEdited] = useState("")
-
 
     useEffect(() => {
         const user = Cookies.get("userName")

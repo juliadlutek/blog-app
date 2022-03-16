@@ -2,12 +2,10 @@ import logo from '../images/logo.png'
 import profile from '../images/profile.png'
 import explore from '../images/explore.png'
 import pen from '../images/pen.png'
-import {Link, useHistory} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 
 const Navbar = () => {
-
-    const history = useHistory()
 
     return (
         <div className="navbar">

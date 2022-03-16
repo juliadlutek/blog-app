@@ -4,7 +4,7 @@ import LandingPage from './components/LandingPage'
 import Dashboard from './components/posts/Dashboard';
 import MyPosts from './components/posts/MyPosts';
 import PostCreate from './components/posts/PostCreate';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import {connect} from 'react-redux'; 
 import { getAllPosts } from './ducks/posts/operations'
 import { getAllLikes } from './ducks/likes/operations'
@@ -20,8 +20,6 @@ import {deleteAllCommentsAction} from './ducks/comments/actions'
 
 
 function App({posts, getAllPosts, users, getAllUsers, comments, getAllComments, likes, getAllLikes, deleteAllPostsAction, deleteAllLikesAction, deleteAllCommentsAction}) {
-
-  const userName = Cookies.get("userName")
 
   useEffect(() => {
     if (posts.length === 0) {

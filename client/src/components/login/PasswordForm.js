@@ -1,8 +1,6 @@
 import {Form, Formik, Field, ErrorMessage} from "formik"
 import * as Yup from "yup" 
-import axios from "axios"
 import { useHistory } from "react-router-dom"
-import Cookies from 'js-cookie'
 
 
 const PasswordSchema = Yup.object().shape({
@@ -24,7 +22,6 @@ const PasswordSchema = Yup.object().shape({
     const PasswordForm = ({initialValues, onSubmit}) => {
         
         const renderError = (message) => <p className="errorMessage">{message}</p>;
-        const history = useHistory()
 
     return (
         <Formik
